@@ -10,7 +10,7 @@ export class AuthService {
       
         const hashedPassword = await bcrypt.hash(registerUserDto.password, 10);
         registerUserDto.password = hashedPassword;
-        
-        return this.userService.createUser(registerUserDto);
+
+        return await this.userService.createUser(registerUserDto);
     }
 }

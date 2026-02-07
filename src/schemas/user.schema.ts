@@ -12,7 +12,7 @@ export class User {
     @Prop({ required: true })
     lname: string;
 
-    @Prop({ required: true })
+    @Prop({ required: true, unique: true })
     email: string;
 
     @Prop({ required: true })
@@ -23,3 +23,4 @@ export class User {
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
+UserSchema.index({ email: 1 }, { unique: true });

@@ -9,9 +9,9 @@ import { UserModule } from './user/user.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    MongooseModule.forRoot(
-      process.env.MONGO_URI as string,
-    ),
+    MongooseModule.forRoot(process.env.MONGO_URI as string, {
+      autoIndex: true,
+    }),
     AuthModule,
     UserModule,
   ],
